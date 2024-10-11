@@ -5,11 +5,12 @@ from django.db.models.signals import post_save, post_delete
 
 
 TIME_SLOTS = (
-    ('8:45 - 9:45'  , '8:45 - 9:45'),
-    ('10:00 - 11:00', '10:00 - 11:00'),
-    ('11:00 - 12:00', '11:00 - 12:00'),
-    ('1:00 - 2:00'  , '1:00 - 2:00'),
-    ('2:15 - 3:15'  , '2:15 - 3:15'),
+    ('10:15 - 11:15'  , '10:15 - 11:15'),
+    ('11:15 - 12:15', '11:15 - 12:15'),
+    ('12:45 - 1:45', '12:45 - 1:45'),
+    ('1:45 - 2:45'  , '1:45 - 2:45'),
+    ('2:45 - 3:45'  , '2:45 - 3:45'),
+    ('3:45 - 4:45', '3:45 - 4:45'),
 )
 
 # TIME_SLOTS = (
@@ -52,7 +53,7 @@ class MeetingTime(models.Model):
     pid = models.CharField(max_length=4, primary_key=True)
     time = models.CharField(max_length=50,
                             choices=TIME_SLOTS,
-                            default='11:30 - 12:30')
+                            default=None)
     day = models.CharField(max_length=15, choices=DAYS_OF_WEEK)
 
     def __str__(self):
